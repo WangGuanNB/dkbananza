@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DK Bananza - The ultimate Skill Calculator and Resource Tool for Donkey Kong Bananza. Plan your skill tree, explore transformations, and master destructible environments.">
+    <meta name="keywords" content="DK Bananza, Donkey Kong Bananza, Skill Calculator, Skill Tree, Transformations, Destructible Environments, Banandium Gems">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="DK Bananza - Ultimate Skill Calculator & Resource Tool">
+    <meta property="og:description" content="Plan your perfect build in Donkey Kong Bananza! Allocate skill points to unlock powerful transformations, enhanced abilities, and bonus stats.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <title>DK Bananza - Ultimate Skill Calculator & Resource Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-wrapper {
+            display: flex;
+            width: 100%;
+        }
+        
+        .side-column {
+            flex: 1;
+            background-color: #1a1a1a;
+            min-height: 100vh;
+        }
+        
+        .main-column {
+            flex: 0 0 1200px;
+            max-width: 1200px;
+        }
+        
+        @media (max-width: 1400px) {
+            .side-column {
+                flex: 0 0 50px;
+                min-width: 50px;
+            }
+            
+            .main-column {
+                flex: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-wrapper {
+                flex-direction: column;
+            }
+            
+            .side-column {
+                display: none;
+            }
+            
+            .main-column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="side-column"></div>
+        <div class="main-column">
+            <header>
+                <div class="container">
+                    <div class="logo">
+                                        <a href="index.html"><img src="images/dkb-logo.png" alt="DK Bananza Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="javascript:void(0);" class="disabled-link">Skill Tree Calculator</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="disabled-link">Characters <i class="fa-solid fa-chevron-down"></i></a>
+                    </li>
+                    <li><a href="javascript:void(0);" class="disabled-link">Transformations</a></li>
+                    <li><a href="javascript:void(0);" class="disabled-link">Destructible Worlds</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="disabled-link">Game Guide <i class="fa-solid fa-chevron-down"></i></a>
+                    </li>
+                    <li><a href="javascript:void(0);" class="disabled-link">Build Strategies</a></li>
+                            <li>
+                                <select id="language-selector">
+                                    <option value="en">English</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <main>
+        <section class="hero-banner">
+            <img src="images/dk-background.jpg" alt="Donkey Kong Bananza Background">
+            <div class="hero-content">
+                <h2>DK Bananza - Ultimate Skill Calculator</h2>
+                <p>Plan your perfect build in Donkey Kong Bananza! Allocate skill points to unlock powerful transformations, enhanced abilities, and master destructible environments.</p>
+            </div>
+        </section>
+
+        <section class="skill-points">
+            <div class="container">
+                <div class="skill-counter">
+                    <p>Total Skill Points Used: <span id="used-points">0</span> / <span id="total-points">40</span> | Banandium Cost: <span id="xp-cost">0</span> Gems</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="skill-grid">
+            <div class="container">
+                <div class="skill-card power">
+                    <img src="images/power-kong.png" alt="Power Kong">
+                    <h3>Power</h3>
+                    <div class="slider-container">
+                        <div class="slider-dot"></div>
+                        <div class="slider-track"></div>
+                    </div>
+                    <ul class="skill-details">
+                        <li>+5% damage per point</li>
+                        <li>Unlocks: None</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card speed">
+                    <img src="images/speed-kong.png" alt="Speed Kong">
+                    <h3>Speed</h3>
+                    <div class="slider-container">
+                        <div class="slider-dot"></div>
+                        <div class="slider-track"></div>
+                    </div>
+                    <ul class="skill-details">
+                        <li>+3% movement per point</li>
+                        <li>Unlocks: None</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card destruction">
+                    <img src="images/destruction-kong.png" alt="Destruction Kong">
+                    <h3>Destruction</h3>
+                    <div class="slider-container">
+                        <div class="slider-dot"></div>
+                        <div class="slider-track"></div>
+                    </div>
+                    <ul class="skill-details">
+                        <li>+6% AoE force per point</li>
+                        <li>Unlocks: None</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card transformation">
+                    <img src="images/transformation-kong.png" alt="Transformation Kong">
+                    <h3>Transformation</h3>
+                    <div class="slider-container">
+                        <div class="slider-dot"></div>
+                        <div class="slider-track"></div>
+                    </div>
+                    <ul class="skill-details">
+                        <li>Unlocks forms:</li>
+                        <li>None: None</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="build-summary">
+            <div class="container">
+                <h2>Build Summary</h2>
+                <p>Your Balanced build uses <span id="summary-points">0</span> skill points (0 Banandium Gems).</p>
+            </div>
+        </section>
+
+        <section class="game-info">
+            <div class="container">
+                <h2>What is DK Bananza?</h2>
+                <p>DK Bananza (Donkey Kong Bananza) is a groundbreaking 2025 platform game for the Nintendo Switch 2 that revolutionizes the Donkey Kong franchise with fully destructible environments. Players control the iconic gorilla as he ventures underground with young Pauline to recover stolen Banandium Gems from villainous apes.</p>
+                
+                <p>The game features a unique skill tree system where players earn Banandium Gems to invest in different upgrade paths: Power, Speed, Destruction, and Transformation. Each path unlocks special abilities that drastically change gameplay. Transform into creatures like the Ostrich for speed and egg bombs, or the Zebra for enhanced strength. Our Skill Calculator tool helps you plan optimal builds for any playstyle, whether you prefer smashing through terrain, speedrunning through levels, or mastering transformations.</p>
+            </div>
+        </section>
+
+        <section class="game-features">
+            <div class="container">
+                <h2>Revolutionary Gameplay Features</h2>
+                <p>DK Bananza stands out as the most innovative evolution of the Donkey Kong franchise. Unlike traditional platformers, DK Bananza introduces a fully destructible voxel-based environment system where players can smash through almost any surface, rip pieces from walls, and create new paths through the underground world.</p>
+                
+                <p>The game's underground world is divided into unique themed layers, including ice, lava, and tropical biomes. Each area presents distinctive challenges requiring strategic use of Donkey Kong's abilities. The terrain destruction mechanics allow for creative problem-solving - dig underground passages, stack soft terrain to reach new heights, or throw environmental objects as weapons. With sandbox-style exploration similar to Super Mario Odyssey but with the added dimension of environmental manipulation, DK Bananza delivers a fresh take on the platforming genre.</p>
+            </div>
+        </section>
+
+        <section class="game-customization">
+            <div class="container">
+                <h2>Master Your Playstyle with the Skill Tree</h2>
+                <p>One of the most impressive features in DK Bananza is the comprehensive skill tree system. Unlike other platformers with limited progression, DK Bananza gives players freedom to create unique builds tailored to their preferences. Do you want to focus on brute force and deal massive damage? Put points into Power. Prefer agility and speedrunning? Go all-in on the Speed tree. Like destroying everything in your path? Destruction is your go-to.</p>
+                
+                <p>The real magic happens when players mix skill trees. A hybrid build of Power and Transformation allows for explosive combos like Banana Slam followed by a Rhino Smash. Transformations are especially critical — from the speed-boosting Ostrich to the final form Gorilla King, each form drastically changes your capabilities. These forms unlock at certain thresholds, making smart planning essential. Our Skill Calculator helps you optimize your builds, track Banandium costs, and plan unlock timing. This tool is perfect for new players looking for guidance or veterans refining their meta strategies.</p>
+            </div>
+        </section>
+
+        <section class="build-strategies">
+            <div class="container">
+                <h2>Build Strategies</h2>
+                <p>Experiment with different skill combinations:</p>
+                <ul>
+                    <li>Power builds focus on heavy damage and terrain destruction</li>
+                    <li>Speed builds enhance mobility and access to Double Dash ability</li>
+                    <li>Destruction builds increase area effects and Earth Quake stun</li>
+                    <li>Transformation builds unlock special forms like Ostrich and Gorilla King</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="unique-content">
+            <div class="container">
+                <h2>Exclusive DK Bananza Insights</h2>
+                <p>Our team has analyzed the optimal skill point allocation for each of the game's challenging underground layers. Based on extensive testing, we've found that balancing Power and Destruction skills (60/40 split) provides the most efficient path through the early ice biome, while the lava zones require heavier investment in Transformation abilities to access the heat-resistant forms.</p>
+                
+                <p>Unlike other resources, our Skill Calculator is updated weekly with the latest game patch data, ensuring your builds remain optimized as the meta evolves. We've also discovered several hidden Banandium Gem caches that aren't documented elsewhere - check our Destructible Worlds section for detailed maps and guides.</p>
+            </div>
+        </section>
+    </main>
+
+            <footer>
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-logo">
+                            <img src="images/dkb-logo-small.png" alt="DK Bananza Logo">
+                        </div>
+                        <div class="footer-links">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="javascript:void(0);" class="disabled-link">Skill Tree Calculator</a></li>
+                                <li><a href="javascript:void(0);" class="disabled-link">Transformations</a></li>
+                                <li><a href="javascript:void(0);" class="disabled-link">Build Strategies</a></li>
+                                <li><a href="javascript:void(0);" class="disabled-link">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-social">
+                            <h4>Follow Us</h4>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-discord"></i></a>
+                                <a href="#"><i class="fab fa-reddit"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2023 DK Bananza Resource Tool. All rights reserved. This is a fan-made site not affiliated with Nintendo or the official Donkey Kong franchise.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <div class="side-column"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html> 
